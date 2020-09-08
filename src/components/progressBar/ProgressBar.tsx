@@ -26,7 +26,6 @@ export class ProgresBar extends React.Component<ProgresBarPropType, ProgresBarSt
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     height: 40,
     padding: 3,
     borderColor: '#AAA',
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   inner: {
-    flexGrow: 2,
     height: 30,
     borderRadius: 15,
     backgroundColor: '#24c8dd',
