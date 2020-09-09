@@ -12,7 +12,7 @@
     "target": "esnext",
     "resolveJsonModule": true,
     "types": [
-      "./node_modules/@types/react-native/globals.d.ts"
+      // "./node_modules/@types/react-native/globals.d.ts"
     ],
     "baseUrl": ".",
     "paths": {

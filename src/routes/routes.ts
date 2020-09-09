@@ -1,8 +1,8 @@
 import { ComponentClass, FunctionComponent } from 'react'
 
-import HomeScreen from '@/screens/HomeScreen'
-import AboutScreen from '@/screens/AboutScreen'
+import { SearchScreen } from '@/screens/SearchScreen'
 import { PushNotificationScreen } from '@/screens/PushNotificationScreen'
+import { WebViewScreen } from '@/screens/WebViewScreen'
 
 type CustomRouteType = {
   [prop: string]: {
@@ -13,17 +13,17 @@ type CustomRouteType = {
 }
 
 export const routes: CustomRouteType = {
-  // HomeScreen: {
-  //   component: HomeScreen,
-  //   isHeaderButton: true,
-  // },
-  // AboutScreen: {
-  //   component: AboutScreen,
-  //   isHeaderButton: true,
-  // },
   PushNotificationScreen: {
     component: PushNotificationScreen,
     isHeaderButton: true,
+  },
+  SearchScreen: {
+    component: SearchScreen,
+    isHeaderButton: true,
+  },
+  WebViewScreen: {
+    component: WebViewScreen,
+    isHeaderButton: false,
   },
 }
 
