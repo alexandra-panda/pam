@@ -3,6 +3,7 @@ import { ComponentClass, FunctionComponent } from 'react'
 import { SearchScreen } from '@/screens/SearchScreen'
 import { PushNotificationScreen } from '@/screens/PushNotificationScreen'
 import { WebViewScreen } from '@/screens/WebViewScreen'
+import { CameraScreen } from '@/screens/CameraScreen'
 
 type CustomRouteType = {
   [prop: string]: {
@@ -19,6 +20,10 @@ export const routes: CustomRouteType = {
   },
   SearchScreen: {
     component: SearchScreen,
+    isHeaderButton: true,
+  },
+  CameraScreen: {
+    component: CameraScreen,
     isHeaderButton: true,
   },
   WebViewScreen: {

@@ -76,9 +76,6 @@ export class PushNotificationScreen extends Component<
       <View style={styles.mainContainer}>
         <Text> PushNotificationScreen </Text>
         <ProgresBar percent={this.state.animationPercents} />
-        <Text> PushNotificationScreen </Text>
-        <Text> PushNotificationScreen </Text>
-        <Text> PushNotificationScreen </Text>
       </View>
     )
   }

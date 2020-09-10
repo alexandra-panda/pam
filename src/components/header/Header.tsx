@@ -1,12 +1,10 @@
 import React, { FC, ReactElement } from 'react'
-import { StatusBar, Dimensions, StyleSheet, ScrollView, GestureResponderEvent } from 'react-native'
+import { StatusBar, StyleSheet, ScrollView, GestureResponderEvent } from 'react-native'
 import { StackHeaderProps } from '@react-navigation/stack'
 
 import { HeaderButton } from '@/components/header/HeaderButton'
 
 import { routes } from '@/routes/routes'
-
-import constants from '@/components/header/constants'
 
 type HeaderPropsType = StackHeaderProps
 
@@ -34,14 +32,12 @@ export const Header: FC<HeaderPropsType> = ({ navigation }): ReactElement => {
 
 const styles = StyleSheet.create({
   scrollWrapper: {
-    width: Dimensions.get('window').width,
-    height: constants.defaultHeaderHeight,
+    width: '100%',
     backgroundColor: '#256E7B',
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   elementsContainer: {
     backgroundColor: 'transparent',
-    height: constants.defaultHeaderHeight,
   },
 })

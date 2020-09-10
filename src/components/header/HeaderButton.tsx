@@ -1,8 +1,6 @@
 import React, { FC, ReactElement } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, GestureResponderEvent } from 'react-native'
 
-import constants from '@/components/header/constants'
-
 type HeaderButtonPropType = {
   title: string
   onClickHandler: (e: GestureResponderEvent, routeName: string) => void
@@ -25,22 +23,20 @@ export const HeaderButton: FC<HeaderButtonPropType> = (props): ReactElement => {
 
 const styles = StyleSheet.create({
   headerButton: {
+    flex: 0,
     backgroundColor: '#7a9ea3',
     paddingHorizontal: 7,
     paddingVertical: 3,
+    marginVertical: 4,
     marginHorizontal: 5,
-    height: constants.defaultHeaderButtonHeight,
     borderRadius: 2,
     maxWidth: 90,
     minWidth: 70,
     justifyContent: 'center',
     alignItems: 'center',
-    transform: [{ translateY: -constants.defaultHeaderButtonHeight / 2 }],
-    top: constants.defaultHeaderHeight / 2,
   },
   customBtnText: {
     fontSize: 13,
-    fontWeight: 'bold',
     color: '#fff',
   },
 })
