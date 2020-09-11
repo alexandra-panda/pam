@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, GestureResponderEvent } from 'react-native'
 
-type HeaderButtonPropType = {
+export type HeaderButtonPropType = {
   title: string
   onClickHandler: (e: GestureResponderEvent, routeName: string) => void
   routeDir: string
