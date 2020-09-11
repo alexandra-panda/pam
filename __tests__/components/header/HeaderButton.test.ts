@@ -1,16 +1,40 @@
+/**
+ * @jest-environment jsdom
+ */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import 'react-native'
-import React from 'react'
-import renderer from 'react-test-renderer'
+import { TouchableOpacity } from 'react-native'
+import { createElement } from 'react'
+import { shallow } from 'enzyme'
 
 import { HeaderButton, HeaderButtonPropType } from '@/components/header/HeaderButton'
 
 describe('Header Button test case', () => {
-  test('Header Button renders correctly', () => {
-    const options: HeaderButtonPropType = {
-      onClickHandler: jest.fn(),
-      title: 'abcde',
-      routeDir: 'aaa',
+  let headerButtonProps: HeaderButtonPropType
+
+  beforeEach(() => {
+    headerButtonProps = {
+      onClickHandler: () => {},
+      title: 'tITle_314134',
+      routeDir: 'HomeAboutRouteExample341341',
     }
-    renderer.create(React.createElement(HeaderButton, options, null))
+  })
+
+  test('Header Button renders correctly', () => {
+    const component = shallow(createElement(HeaderButton, headerButtonProps, null))
+    expect(component).toMatchSnapshot()
+  })
+
+  test('Click event invoke callback', () => {
+    const onClickHandlerMock = jest.fn()
+    headerButtonProps.onClickHandler = onClickHandlerMock
+
+    const component = shallow(createElement(HeaderButton, headerButtonProps, null))
+    const btnProps = component.find(TouchableOpacity).props() as any
+
+    btnProps.onPress({})
+
+    expect(onClickHandlerMock).toHaveBeenCalledTimes(1)
   })
 })

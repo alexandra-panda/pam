@@ -1,11 +1,13 @@
 module.exports = {
   preset: 'react-native',
-  // moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   roots: ['<rootDir>'],
+  setupFilesAfterEnv: ['<rootDir>/jest/setupTests.js'],
+  collectCoverage: true,
+  moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
   },
-  setupFiles: ['<rootDir>/setupTests.js'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/jest'],
   testMatch: [
     '**/__tests__/**/?(*.)+(spec|test).+(ts|tsx|js)',
     '**/?(*.)+(spec|test).+(ts|tsx|js)',
@@ -13,4 +15,5 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
+  transformIgnorePatterns: ['node_modules/(?!(jest-)?react-native)'],
 }

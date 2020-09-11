@@ -14,7 +14,6 @@
     "resolveJsonModule": true,
     "types": [
       "jest"
-      // "./node_modules/@types/react-native/globals.d.ts"
     ],
     "baseUrl": ".",
     "paths": {
