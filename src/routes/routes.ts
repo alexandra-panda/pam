@@ -10,6 +10,7 @@ type CustomRouteType = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component: ComponentClass<any, any> | FunctionComponent<any>
     isHeaderButton: boolean
+    name:string
   }
 }
 
@@ -17,18 +18,22 @@ export const routes: CustomRouteType = {
   PushNotificationScreen: {
     component: PushNotificationScreen,
     isHeaderButton: true,
+    name: 'Home'
   },
   SearchScreen: {
     component: SearchScreen,
     isHeaderButton: true,
+    name: 'Search'
   },
   CameraScreen: {
     component: CameraScreen,
     isHeaderButton: true,
+    name: 'Camera'
   },
   WebViewScreen: {
     component: WebViewScreen,
     isHeaderButton: false,
+    name: ''
   },
 }
 

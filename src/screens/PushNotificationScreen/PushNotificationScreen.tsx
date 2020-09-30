@@ -1,4 +1,4 @@
-import React, { Component, ReactElement, PropsWithChildren } from 'react'
+import React, { Component, ReactElement, PropsWithChildren, useCallback } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 
 import { localNotification } from '@/services/pushNotificationService'
@@ -7,6 +7,7 @@ import {
   progressBarDelayInSeconds as UPDATE_INTERVAL,
   sleepSecondsBeforePushNotification as TOTAL_SECONDS,
 } from './constants.json'
+import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace'
 
 type PushNotificationScreenPropType = PropsWithChildren<unknown>
 
@@ -27,45 +28,17 @@ export class PushNotificationScreen extends Component<
     this.state = {
       animationPercents: 0,
     }
-
-    this.periodicCallbackForAnimation = this.periodicCallbackForAnimation.bind(this)
-    this.onAnimationCompleteCallback = this.onAnimationCompleteCallback.bind(this)
+   
   }
 
-  periodicCallbackForAnimation(): void {
-    const incValueInPercents = (UPDATE_INTERVAL / TOTAL_SECONDS) * 100
-    let newPercentsValue = incValueInPercents + this.state.animationPercents
-
-    if (newPercentsValue > 100) {
-      newPercentsValue = 100
-      clearInterval(this.animationPeriodicID)
-    }
-
-    this.setState({ animationPercents: newPercentsValue })
-  }
-
-  onAnimationCompleteCallback(): void {
-    localNotification({ title: 'Push notification title', message: 'Push notification message' })
-  }
+  
 
   componentDidMount(): void {
-    this.animationPeriodicID = setInterval(
-      this.periodicCallbackForAnimation,
-      1000 * UPDATE_INTERVAL,
-    )
+    setTimeout(()=> {
+      localNotification({ title: 'Notificare Iomaio', message: 'Eu încă mai vreau 10!' })
+    },10000)
   }
 
-  componentDidUpdate(
-    prevProps: PushNotificationScreenPropType,
-    prevState: PushNotificationScreenStateType,
-  ): void {
-    if (
-      prevState.animationPercents !== this.state.animationPercents &&
-      this.state.animationPercents === 100
-    ) {
-      this.onAnimationCompleteCallback()
-    }
-  }
 
   componentWillUnmount(): void {
     clearInterval(this.animationPeriodicID)
@@ -73,14 +46,33 @@ export class PushNotificationScreen extends Component<
 
   render(): ReactElement {
     return (
-      <View style={styles.mainContainer}>
-        <Text> PushNotificationScreen </Text>
-        <ProgresBar percent={this.state.animationPercents} />
+      <View style={styles.mainContainer}> 
+      <View style={styles.textStyle}>
+        <Text style={styles.textIomaio}> Bună ziua Domu Rusu!!! </Text>  
+        <Text style={styles.textIomaio}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eu vreau 10 xD </Text> 
+      </View>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {},
+  mainContainer: { 
+    backgroundColor: '#b34d4d', 
+    justifyContent: 'center', 
+    display: 'flex', 
+    alignItems: 'center',
+    
+  },
+     textStyle: { 
+        height: '100%', 
+        marginTop: '160%',  
+     
+
+     }, 
+  textIomaio: { 
+ color: 'white', 
+ fontSize: 30
+  }  ,  
+
 })

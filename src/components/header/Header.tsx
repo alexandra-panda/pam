@@ -24,7 +24,7 @@ export const Header: FC<HeaderPropsType> = ({ navigation }): ReactElement => {
       {Object.keys(routes)
         .filter((key) => routes[key].isHeaderButton)
         .map((key) => (
-          <HeaderButton key={key} routeDir={key} title={key} onClickHandler={buttonOnClickFunc} />
+          <HeaderButton key={key} routeDir={key} title={routes[key].name} onClickHandler={buttonOnClickFunc} />
         ))}
     </ScrollView>
   )
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#256E7B',
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap',  
+    
   },
   elementsContainer: {
     backgroundColor: 'transparent',
