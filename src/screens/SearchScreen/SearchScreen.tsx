@@ -15,24 +15,35 @@ export const SearchScreen: FC = (): ReactElement => {
     navigator.navigate('WebViewScreen', { urlPath })
   }, [searchValue])
 
-  return (
+    return ( 
     <View style={styles.container}>
-      <TextInput onChangeText={(text) => setSearchValue(text)} style={styles.textInput} />
-      <Button title="Find" onPress={onButtonPressCallback} />
+      <View style={styles.childContainer}>
+        <TextInput onChangeText={(text) => setSearchValue(text)} style={styles.textInput} />
+        <Button title="Find" onPress={onButtonPressCallback} />
+      </View> 
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: { 
+    height: '100%',
+    backgroundColor: '#b34d4d',
+    justifyContent: 'center'
+    
+    // marginTop: 300,
+  },
+  childContainer: {
     marginHorizontal: 4,
     flexDirection: 'column',
   },
   textInput: {
-    color: 'green',
+    color: 'black',
     borderStyle: 'solid',
     borderWidth: 1,
     marginVertical: 6,
     borderColor: 'grey',
+    backgroundColor: 'white'
   },
+
 })

@@ -24,7 +24,8 @@ export const HeaderButton: FC<HeaderButtonPropType> = (props): ReactElement => {
 const styles = StyleSheet.create({
   headerButton: {
     flex: 0,
-    backgroundColor: '#7a9ea3',
+    backgroundColor: '#b34d4d', 
+  
     paddingHorizontal: 7,
     paddingVertical: 3,
     marginVertical: 4,
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     maxWidth: 90,
     minWidth: 70,
+    height:40,
     justifyContent: 'center',
     alignItems: 'center',
   },
