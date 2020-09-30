@@ -65,8 +65,8 @@ export default class ScreenShooter extends Component<
         ></RNCamera>
 
         <View style={styles.container}>
-          <View style={{ flexDirection: 'row', backgroundColor: 'white', alignItems: 'center' }}>
-            <Text>Front camera:</Text>
+          <View style={{ flexDirection: 'row', backgroundColor: '#b34d4d', alignItems: 'center', right: 20 }}>
+            <Text style ={styles.text}>&nbsp;&nbsp;&nbsp;&nbsp;Front camera:</Text>
             <CheckBox
               value={this.state.isFrontCamera}
               disabled={this.state.isFrontCamera}
@@ -76,10 +76,10 @@ export default class ScreenShooter extends Component<
             />
           </View>
           <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
-            <Text>Snap {this.state.isFrontCamera ? 'Front' : 'Back'}</Text>
+            <Text style ={styles.text}>Snap {this.state.isFrontCamera ? 'Front' : 'Back'}</Text>
           </TouchableOpacity>
-          <View style={{ flexDirection: 'row', backgroundColor: 'white', alignItems: 'center' }}>
-            <Text>Back camera:</Text>
+          <View style={{ flexDirection: 'row', backgroundColor: '#b34d4d', alignItems: 'center', left: 20 }}>
+            <Text style ={styles.text}>&nbsp;&nbsp;&nbsp;&nbsp;Back camera:</Text>
             <CheckBox
               value={!this.state.isFrontCamera}
               disabled={!this.state.isFrontCamera}
@@ -98,18 +98,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 0,
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'center', 
+    backgroundColor: '#262626', 
+    height: 50, 
+    
   },
   capture: {
     flex: 0,
-    backgroundColor: '#a7a7a7',
+    backgroundColor: '#b34d4d',
     borderRadius: 5,
     padding: 6,
     alignSelf: 'center',
+   
   },
   preview: {
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-  },
+  }, 
+ text: { 
+   color: 'white',
+ }
 })
